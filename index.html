@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHAFLOW | Precision Performance Engineering</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-gradient: linear-gradient(135deg, #8E6E2E 0%, #D4AF37 45%, #F7E7CE 70%, #C5A059 100%);
+            --matte-black: #050505;
+            --charcoal: #0F0F0F;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(212, 175, 55, 0.15);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Base Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; } /* Custom cursor active */
+        body { 
+            background-color: var(--matte-black); 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Luxury Cursor */
+        #cursor {
+            width: 20px; height: 20px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s;
+        }
+
+        /* Typography Styles */
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: -1px; }
+        .italic-serif { font-family: 'Playfair Display', serif; text-transform: lowercase; font-style: italic; font-weight: 400; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 6%; position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .logo-group { display: flex; align-items: center; gap: 12px; }
+        .logo-diamond {
+            width: 30px; height: 30px; border: 2px solid var(--gold-primary);
+            transform: rotate(45deg); display: flex; align-items: center; justify-content: center;
+        }
+        .logo-diamond i { transform: rotate(-45deg); color: var(--gold-primary); font-size: 0.8rem; }
+        .logo-text { font-weight: 900; letter-spacing: 5px; font-size: 1.1rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .nav-links { display: flex; gap: 50px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #fff; font-size: 0.7rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); opacity: 0.5; }
+        .nav-links a:hover { opacity: 1; color: var(--gold-primary); }
+
+        .hamburger { display: none; color: var(--gold-primary); font-size: 1.2rem; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh; width: 100%; display: flex; align-items: center; 
+            justify-content: center; position: relative; overflow: hidden;
+            padding: 0 10%;
+        }
+
+        .hero-bg-text {
+            position: absolute; font-size: 25vw; font-weight: 900; color: rgba(255,255,255,0.02);
+            top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; pointer-events: none;
+        }
+
+        .hero-content { z-index: 10; text-align: center; max-width: 900px; }
+        .hero-label { display: block; font-size: 0.8rem; letter-spacing: 10px; color: var(--gold-primary); margin-bottom: 20px; font-weight: 600; }
+        .hero-content h1 { font-size: clamp(3rem, 10vw, 6.5rem); line-height: 0.85; margin-bottom: 30px; }
+        
+        /* The Luxury Product Image (CSS Render) */
+        .product-stage {
+            position: relative; height: 400px; width: 100%; display: flex; justify-content: center; align-items: center; margin: 40px 0;
+        }
+        .bottle-render {
+            width: 220px; height: 380px; 
+            background: linear-gradient(145deg, #111 0%, #050505 100%);
+            border-radius: 15px 15px 60px 60px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 50px 100px rgba(0,0,0,1), inset 0 0 30px rgba(212, 175, 55, 0.05);
+            position: relative; transform: rotate(-5deg); transition: var(--transition);
+        }
+        .bottle-render:hover { transform: rotate(0deg) scale(1.05); }
+        .bottle-label {
+            position: absolute; top: 35%; width: 100%; height: 120px;
+            background: var(--gold-gradient); color: #000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .bottle-label h3 { font-size: 1.2rem; font-weight: 900; letter-spacing: 2px; }
+
+        /* Sections */
+        .section { padding: 140px 10%; position: relative; }
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-header h2 { font-size: 3.5rem; }
+        .section-header p { color: var(--gold-primary); letter-spacing: 5px; font-size: 0.9rem; margin-bottom: 10px; }
+
+        /* Product Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .product-card {
+            background: var(--charcoal); padding: 80px 40px; text-align: center;
+            border: 1px solid var(--border); transition: var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .product-card:hover { border-color: var(--gold-primary); background: #151515; }
+        .product-card .price { font-size: 2rem; margin: 30px 0; font-weight: 300; }
+
+        /* Button Styling */
+        .btn-gold {
+            display: inline-block; padding: 22px 50px; background: var(--gold-gradient);
+            color: #000; text-decoration: none; font-weight: 900; letter-spacing: 3px;
+            text-transform: uppercase; font-size: 0.75rem; transition: var(--transition);
+            border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .btn-gold:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2); }
+
+        .btn-outline {
+            display: inline-block; padding: 21px 49px; border: 1px solid var(--gold-primary);
+            color: #fff; text-decoration: none; font-weight: 900; letter-spacing: 3px;
+            text-transform: uppercase; font-size: 0.75rem; transition: var(--transition);
+        }
+        .btn-outline:hover { background: var(--gold-primary); color: #000; }
+
+        /* Ingredient Section */
+        .ingredient-ticker {
+            padding: 100px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            display: flex; overflow: hidden; gap: 50px;
+        }
+        .ticker-item { 
+            white-space: nowrap; font-size: 1.5rem; font-weight: 900; color: rgba(255,255,255,0.1); 
+            text-transform: uppercase; letter-spacing: 10px; animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            padding: 100px 10% 50px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: flex-start;
+        }
+        .footer-col h4 { color: var(--gold-primary); margin-bottom: 25px; letter-spacing: 2px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 15px; opacity: 0.6; font-size: 0.85rem; }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .product-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 3.5rem; }
+            footer { flex-direction: column; gap: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cursor"></div>
+
+    <nav>
+        <div class="logo-group">
+            <div class="logo-diamond"><i class="fas fa-bolt"></i></div>
+            <div class="logo-text">ALPHAFLOW</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#system">The System</a></li>
+            <li><a href="#science">The Science</a></li>
+            <li><a href="#tester">Founders Program</a></li>
+            <li><a href="#" class="btn-gold" style="padding: 12px 30px;">Shop Now</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg-text">FLOW</div>
+        <div class="hero-content">
+            <span class="hero-label">ENGINEERED PERFORMANCE</span>
+            <h1>Be ready <br><span class="italic-serif">when it</span> matters.</h1>
+            
+            <div class="product-stage">
+                <div class="bottle-render">
+                    <div class="bottle-label">
+                        <h3>ALPHAFLOW</h3>
+                        <p style="font-size: 0.5rem; letter-spacing: 2px;">PRECISION CORE</p>
+                    </div>
+                </div>
+            </div>
+
+            <p style="color: #888; max-width: 500px; margin: 0 auto 40px; font-weight: 300;">
+                A high-altitude performance system designed for the man who refuses to settle. Natural science meets luxury engineering.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="#system" class="btn-gold">Secure the System</a>
+                <a href="#tester" class="btn-outline">Join Founders</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="ingredient-ticker">
+        <div class="ticker-item">L-CITRULLINE • PANAX GINSENG • MACA ROOT • BEETROOT EXTRACT • ZINC • MAGNESIUM • </div>
+        <div class="ticker-item">L-CITRULLINE • PANAX GINSENG • MACA ROOT • BEETROOT EXTRACT • ZINC • MAGNESIUM • </div>
+    </div>
+
+    <section class="section" id="system">
+        <div class="section-header">
+            <p>THE COLLECTION</p>
+            <h2>The Two-Step <span class="italic-serif">Protocol</span></h2>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="bottle-render" style="width: 120px; height: 210px; margin: 0 auto 30px; transform: none; border-radius: 10px 10px 30px 30px;">
+                    <div class="bottle-label" style="height: 60px;">
+                        <h3 style="font-size: 0.7rem;">PRE-SHOT</h3>
+                    </div>
+                </div>
+                <h3>AlphaFlow Pre-Shot</h3>
+                <p style="opacity: 0.5; margin-top: 10px; font-size: 0.8rem;">Nitric Oxide Booster & Performance Catalyst</p>
+                <div class="price">R499</div>
+                <button class="btn-gold" style="width: 100%;">Add to Protocol</button>
+            </div>
+
+            <div class="product-card">
+                <div class="bottle-render" style="width: 120px; height: 210px; margin: 0 auto 30px; transform: none; border-radius: 10px 10px 30px 30px;">
+                    <div class="bottle-label" style="height: 60px;">
+                        <h3 style="font-size: 0.7rem;">CORE CAPS</h3>
+                    </div>
+                </div>
+                <h3>AlphaFlow Core Caps</h3>
+                <p style="opacity: 0.5; margin-top: 10px; font-size: 0.8rem;">Daily Hormone & Vitality Baseline</p>
+                <div class="price">R599</div>
+                <button class="btn-gold" style="width: 100%;">Add to Protocol</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-col">
+            <div class="logo-text" style="margin-bottom: 20px;">ALPHAFLOW</div>
+            <p style="max-width: 300px; opacity: 0.4; font-size: 0.8rem;">Modern life is a performance. Be prepared to win. Engineered in South Africa.</p>
+        </div>
+        <div class="footer-col">
+            <h4>EXPLORE</h4>
+            <ul>
+                <li>The Science</li>
+                <li>Ingredient Audit</li>
+                <li>Shipping Policy</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>LEGAL</h4>
+            <ul>
+                <li>Terms of Service</li>
+                <li>Safety Disclaimer</li>
+                <li>Privacy</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Cursor Movement
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Simple Mobile Toggle Placeholder
+        document.querySelector('.hamburger').onclick = () => {
+            alert("Mobile system menu engaged.");
+        };
+    </script>
+
+</body>
+</html>
