@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaFlow | Precision Performance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0D0D0D;
+            --surface: #1A1A1A;
+            --gold: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #AA8239 100%);
+            --gold-solid: #D4AF37;
+            --text-main: #FFFFFF;
+            --text-dim: #A0A0A0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* --- HEADER & NAV --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #222;
+        }
+
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.5rem; background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold-solid); }
+
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            background: radial-gradient(circle at 80% 20%, #1c1c1c 0%, #0d0d0d 100%);
+        }
+
+        .hero-text { max-width: 500px; }
+        .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 4rem; line-height: 1; margin-bottom: 20px; text-transform: uppercase; }
+        .hero-text p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 30px; }
+
+        .hero-image {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            background: #222; /* Placeholder for your product photo */
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Simulated 3D Bottle Shape */
+        .bottle-mockup {
+            width: 180px;
+            height: 320px;
+            background: linear-gradient(to right, #111, #222, #111);
+            border-radius: 10px 10px 40px 40px;
+            border: 1px solid #333;
+            position: relative;
+        }
+        .bottle-label {
+            position: absolute;
+            top: 40%; width: 100%; height: 100px;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 800;
+            font-size: 0.8rem;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            padding: 18px 35px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.4s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary { background: var(--gold); color: #000; border: none; }
+        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+
+        /* --- PRODUCTS --- */
+        .section-title { text-align: center; margin: 100px 0 50px; font-family: 'Montserrat'; font-size: 2.5rem; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding: 0 10%; }
+        
+        .product-card {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .product-card:hover { border-color: var(--gold-solid); }
+        .product-card img { width: 150px; margin-bottom: 20px; }
+        .price { font-size: 1.5rem; font-weight: 700; margin: 15px 0; color: var(--gold-solid); }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-image { width: 100%; height: 300px; margin-top: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ALPHAFLOW</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#science">Science</a></li>
+            <li><a href="#tester">Tester Program</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Be ready when it matters.</h1>
+            <p>High-performance support for the modern man. Engineered for energy, stamina, and absolute confidence.</p>
+            <a href="#shop" class="btn btn-primary">Get the Starter Pack</a>
+        </div>
+        <div class="hero-image">
+            <div class="bottle-mockup">
+                <div class="bottle-label">ALPHAFLOW CORE</div>
+            </div>
+        </div>
+    </section>
+
+    <h2 class="section-title" id="shop">The System</h2>
+    
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="bottle-mockup" style="margin: auto; width: 100px; height: 180px;">
+                <div class="bottle-label" style="font-size: 0.5rem; height: 40px;">PRE-SHOT</div>
+            </div>
+            <h3>AlphaFlow PRE-SHOT</h3>
+            <p>Fast-Acting Nitric Oxide Support</p>
+            <p class="price">R499.00</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+
+        <div class="product-card">
+            <div class="bottle-mockup" style="margin: auto; width: 100px; height: 180px;">
+                <div class="bottle-label" style="font-size: 0.5rem; height: 40px;">CORE CAPS</div>
+            </div>
+            <h3>AlphaFlow CORE CAPS</h3>
+            <p>Daily Vitality & Hormone Support</p>
+            <p class="price">R599.00</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+    </div>
+
+    <footer style="padding: 100px 5% 40px; text-align: center; opacity: 0.5; font-size: 0.8rem;">
+        <p>&copy; 2026 ALPHAFLOW PERFORMANCE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        // Simple Hamburger Toggle
+        const menu = document.querySelector('.hamburger');
+        const nav = document.querySelector('.nav-links');
+
+        menu.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            nav.style.flexDirection = 'column';
+            nav.style.position = 'absolute';
+            nav.style.top = '70px';
+            nav.style.left = '0';
+            nav.style.width = '100%';
+            nav.style.background = '#111';
+            nav.style.padding = '20px';
+        });
+    </script>
+</body>
+</html>
