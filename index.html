@@ -4,14 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlphaFlow | Be Ready When It Matters</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+
+        :root {
+            --black: #0B0B0B;
+            --dark: #1C1C1C;
+            --gold: #C8A24A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            background: var(--black);
+            color: #e5e5e5;
+            line-height: 1.7;
+        }
+
+        .heading-font {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 11, 11, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #333;
+            z-index: 1000;
+            padding: 1rem 1.5rem;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(#C8A24A, #E8C46A);
+            color: black;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.9rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-weight: 500;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(11,11,11,0.88), rgba(11,11,11,0.92)), url('https://picsum.photos/id/1015/2000/1400') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .badge {
+            background: #C8A24A;
+            color: black;
+            padding: 8px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.2rem, 8.5vw, 5.8rem);
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.55rem;
+            max-width: 720px;
+            margin: 0 auto 2.8rem;
+            color: #ccc;
+        }
+
+        /* BUTTONS */
+        .btn-primary {
+            background: linear-gradient(90deg, #C8A24A, #E8C46A);
+            color: #0B0B0B;
+            font-weight: 700;
+            padding: 18px 42px;
+            border-radius: 9999px;
+            font-size: 1.15rem;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #C8A24A;
+            color: white;
+            padding: 16px 42px;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        /* BUNDLE */
+        .bundle-section {
+            padding: 100px 20px;
+            background: #1C1C1C;
+            text-align: center;
+        }
+
+        .bundle-card {
+            background: #0B0B0B;
+            border: 3px solid #C8A24A;
+            border-radius: 32px;
+            padding: 40px 30px;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .bundle-card .emoji {
+            font-size: 5rem;
+            margin-bottom: 20px;
+        }
+
+        .bundle-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .pricing {
+            margin: 20px 0;
+        }
+
+        .pricing .current {
+            font-size: 3.5rem;
+            color: #C8A24A;
+            font-weight: bold;
+        }
+
+        .pricing .old {
+            font-size: 1.8rem;
+            text-decoration: line-through;
+            color: #888;
+            margin-left: 15px;
+        }
+
+        /* FORM */
+        .form-section {
+            padding: 80px 20px;
+            background: #0B0B0B;
+        }
+
+        .form-card {
+            background: #1C1C1C;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-card input {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 16px;
+            background: #0B0B0B;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            color: #777;
+            font-size: 0.95rem;
+            border-top: 1px solid #333;
+        }
+
+        /* FLOATING WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #0B0B0B;
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 25px;
+                transition: left 0.4s ease;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <nav>
         <div class="nav-container">
             <div class="logo">
+                <div class="logo-icon">A</div>
                 <span class="heading-font">AlphaFlow</span>
             </div>
             <div class="nav-links">
@@ -24,32 +300,36 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <div class="badge">LIMITED PRE-ORDER BATCH — APRIL 2026</div>
             <h1 class="heading-font">Be ready when it matters.</h1>
-            <p>A two-step natural performance system engineered for energy, stamina, and confidence.</p>
+            <p class="hero-text">A two-step natural performance system engineered for energy, stamina, and confidence.</p>
             
-            <div class="buttons">
+            <div class="hero-buttons">
                 <a href="#bundle" class="btn-primary">Pre-Order Starter Bundle R699</a>
                 <a href="tester-program.html" class="btn-secondary">Join Free Tester Program</a>
             </div>
+            
+            <div id="countdown" style="margin-top: 30px; color: #C8A24A; font-weight: 600;"></div>
         </div>
     </section>
 
-    <section id="bundle" class="section">
+    <!-- BUNDLE -->
+    <section id="bundle" class="bundle-section">
         <div class="container">
-            <h2 class="heading-font">AlphaFlow Starter Bundle</h2>
-            <p class="subtitle">PRE-SHOT + CORE CAPS • Save R199</p>
+            <h2 class="heading-font" style="font-size: 3rem; margin-bottom: 10px;">AlphaFlow Starter Bundle</h2>
+            <p class="subtitle" style="font-size: 1.4rem; color: #ccc; margin-bottom: 30px;">PRE-SHOT + CORE CAPS • Save R199</p>
             
-            <div class="bundle-box">
-                <div class="emoji">🔥💪</div>
-                <h3>Full Performance System</h3>
-                <div class="price-box">
-                    <span class="price">R699</span>
-                    <span class="old-price">R898</span>
+            <div class="bundle-card">
+                <div class="emoji">🔥 💪</div>
+                <h3 style="font-size: 2.2rem; margin-bottom: 20px;">Full Performance System</h3>
+                <div class="pricing">
+                    <span class="current" style="font-size: 3.5rem;">R699</span>
+                    <span class="old" style="font-size: 1.8rem; text-decoration: line-through; color: #888;">R898</span>
                 </div>
-                <ul>
+                <ul style="text-align: left; max-width: 320px; margin: 30px auto; font-size: 1.1rem;">
                     <li>✅ PRE-SHOT Fast Activation Powder (10 sachets)</li>
                     <li>✅ CORE CAPS Daily Vitality (60 capsules)</li>
                     <li>✅ Free shipping from Cape Town</li>
@@ -59,15 +339,16 @@
         </div>
     </section>
 
-    <section id="preorder-form" class="section form-section">
+    <!-- PRE-ORDER FORM -->
+    <section id="preorder-form" class="form-section">
         <div class="container">
-            <div class="form-box">
-                <h3>Pre-Order Starter Bundle</h3>
+            <div class="form-card">
+                <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem;">Pre-Order Starter Bundle</h3>
                 <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
                     <input type="text" name="name" placeholder="Full Name" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
-                    <button type="submit" class="btn-primary">Submit Pre-Order</button>
+                    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px;">Submit Pre-Order</button>
                 </form>
             </div>
         </div>
@@ -77,6 +358,34 @@
         © 2026 AlphaFlow • Cape Town, South Africa
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/27712345678?text=Hi%20I%20want%20to%20pre-order%20AlphaFlow%20Starter%20Bundle" class="whatsapp-float">💬</a>
+
+    <script>
+        // Hamburger Menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Countdown
+            const deadline = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000);
+            const countdownEl = document.getElementById('countdown');
+            setInterval(() => {
+                const diff = deadline - new Date();
+                if (diff < 0) {
+                    countdownEl.textContent = "Pre-order batch closed";
+                    return;
+                }
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                countdownEl.innerHTML = `Founder Pre-order Batch Closes in <strong>${days}</strong> days — Only 30 Spots`;
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
