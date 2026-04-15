@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaFlow | Be Ready When It Matters</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics 4 - Replace G-XXXXXXXXXX with your ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full bg-black/95 border-b border-zinc-800 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-gradient-to-br from-[#C8A24A] via-amber-400 to-yellow-300 rounded-2xl flex items-center justify-center text-black font-black text-3xl shadow-inner">A</div>
+                <div>
+                    <span class="heading-font text-3xl tracking-tighter font-bold text-white">AlphaFlow</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <a href="#bundle" class="hover:text-[#C8A24A] transition">Bundle</a>
+                <a href="#how" class="hover:text-[#C8A24A] transition">How It Works</a>
+                <a href="#ingredients" class="hover:text-[#C8A24A] transition">Ingredients</a>
+                <a href="tester-program.html" class="hover:text-[#C8A24A] transition">Founders Program</a>
+            </div>
+            
+            <a href="#bundle" class="btn-primary text-base px-8 py-3">Pre-Order Now</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="min-h-screen bg-cover bg-center flex items-center relative" 
+             style="background-image: linear-gradient(rgba(11,11,11,0.88), rgba(11,11,11,0.92)), url('https://picsum.photos/id/1015/2000/1400');">
+        <div class="max-w-6xl mx-auto px-6 pt-20 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full mb-8 text-sm font-medium">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    LIMITED PRE-ORDER BATCH – APRIL 2026
+                </div>
+                
+                <h1 class="heading-font hero-text text-white font-bold tracking-tighter leading-none mb-8">
+                    Be ready when it matters.
+                </h1>
+                
+                <p class="text-2xl md:text-3xl text-gray-300 max-w-3xl mx-auto mb-12">
+                    A two-step natural performance system engineered for energy, stamina, and confidence.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="#bundle" class="btn-primary text-xl px-12 py-6">👉 Pre-Order Starter Bundle R699</a>
+                    <a href="tester-program.html" class="btn-secondary text-xl px-12 py-6">Join Free Tester Program</a>
+                </div>
+                
+                <div id="countdown" class="mt-12 text-[#C8A24A] font-medium text-lg"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUNDLE SECTION -->
+    <section id="bundle" class="section py-28 bg-zinc-950">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="heading-font text-6xl font-bold mb-6">AlphaFlow Starter Bundle</h2>
+            <p class="text-2xl text-gray-400 max-w-2xl mx-auto mb-16">Everything you need to perform at your natural peak. Save R199.</p>
+
+            <div class="max-w-lg mx-auto bundle-card card">
+                <div class="text-7xl mb-8">🔥 💪</div>
+                <h3 class="text-4xl font-bold mb-4">Full Performance System</h3>
+                <div class="flex items-center justify-center gap-4 mb-10">
+                    <span class="text-6xl font-bold gold">R699</span>
+                    <span class="text-3xl line-through text-gray-500">R898</span>
+                </div>
+                
+                <ul class="text-left space-y-6 mb-12 text-lg">
+                    <li class="flex gap-4"><span class="gold text-2xl">✔</span> PRE-SHOT Fast Activation Powder (10 sachets)</li>
+                    <li class="flex gap-4"><span class="gold text-2xl">✔</span> CORE CAPS Daily Vitality (60 capsules)</li>
+                    <li class="flex gap-4"><span class="gold text-2xl">✔</span> Free shipping from Cape Town</li>
+                    <li class="flex gap-4"><span class="gold text-2xl">✔</span> Digital usage guide + progress tracker</li>
+                </ul>
+                
+                <a href="#preorder-form" onclick="document.getElementById('preorder-form').scrollIntoView({behavior:'smooth'})" 
+                   class="btn-primary w-full py-7 text-2xl">Secure Your Bundle – Pre-Order Now</a>
+                
+                <p class="text-xs text-gray-500 mt-8">Pre-order today • Payment via EFT • Ships May/June 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRE-ORDER FORM SECTION -->
+    <section id="preorder-form" class="py-24 bg-black">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="card">
+                <h3 class="text-3xl font-bold text-center mb-10">Pre-Order AlphaFlow Starter Bundle</h3>
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" name="name" placeholder="Full Name" required class="bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-5 focus:outline-none focus:border-[#C8A24A]">
+                        <input type="email" name="email" placeholder="Email" required class="bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-5 focus:outline-none focus:border-[#C8A24A]">
+                    </div>
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp Number (preferred)" required class="mt-6 w-full bg-zinc-900 border border-zinc-700 rounded-2xl px-6 py-5 focus:outline-none focus:border-[#C8A24A]">
+                    <input type="hidden" name="product" value="AlphaFlow Starter Bundle - R699">
+                    
+                    <button type="submit" class="mt-10 btn-primary w-full py-7 text-xl">
+                        Submit Pre-Order • R699
+                    </button>
+                </form>
+                <p class="text-center text-xs text-gray-500 mt-8">We will send bank details via WhatsApp within 24 hours</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-16 border-t border-zinc-900 text-center text-sm text-gray-500">
+        <p>© 2026 AlphaFlow • Cape Town, South Africa</p>
+        <p class="mt-2">Dietary supplement. Results may vary. Consult your healthcare professional before use.</p>
+        <p class="mt-8 text-xs">Made for men who show up when it counts.</p>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/27712345678?text=Hi%20I%20want%20to%20pre-order%20the%20AlphaFlow%20Starter%20Bundle" 
+       target="_blank" class="whatsapp-float">
+        💬
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
