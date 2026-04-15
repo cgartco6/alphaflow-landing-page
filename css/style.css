@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+
+:root {
+  --black: #0B0B0B;
+  --dark: #1C1C1C;
+  --gold: #C8A24A;
+  --gold-light: #E8C46A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system_ui, sans-serif;
+  background-color: var(--black);
+  color: #e5e5e5;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.heading-font {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.gold { color: var(--gold); }
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  color: #0B0B0B;
+  font-weight: 700;
+  padding: 18px 36px;
+  border-radius: 9999px;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 10px 30px rgba(200, 162, 74, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(200, 162, 74, 0.4);
+}
+
+.btn-secondary {
+  border: 2px solid var(--gold);
+  color: white;
+  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: 9999px;
+  transition: all 0.4s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(200, 162, 74, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Cards */
+.card {
+  background: var(--dark);
+  border: 1px solid #333;
+  border-radius: 28px;
+  padding: 48px 40px;
+  transition: border 0.4s ease;
+}
+
+.card:hover {
+  border-color: var(--gold);
+}
+
+.bundle-card {
+  border: 3px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.bundle-card::after {
+  content: "BEST VALUE • SAVE R199";
+  position: absolute;
+  top: -14px;
+  right: 30px;
+  background: var(--gold);
+  color: #0B0B0B;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  letter-spacing: 0.5px;
+}
+
+/* Navbar */
+nav {
+  backdrop-filter: blur(12px);
+}
+
+/* Hero */
+.hero-text {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1.05;
+}
+
+/* Floating WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #25D366;
+  color: white;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 20px;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 18px;
+  }
+}
