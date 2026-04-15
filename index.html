@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaFlow | Be Ready When It Matters</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics 4 Placeholder -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="w-11 h-11 bg-gradient-to-br from-[#C8A24A] to-amber-300 rounded-2xl flex items-center justify-center text-black font-black text-3xl">A</div>
+                <span class="heading-font text-white">AlphaFlow</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#bundle">Bundle</a>
+                <a href="#how">How It Works</a>
+                <a href="#ingredients">Ingredients</a>
+                <a href="tester-program.html">Founders Program</a>
+                <a href="#bundle" class="btn-primary">Pre-Order Now</a>
+            </div>
+            
+            <button class="hamburger" aria-label="Menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2.5 rounded-full mb-8 text-sm font-medium">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                LIMITED PRE-ORDER BATCH — APRIL 2026
+            </div>
+            
+            <h1 class="heading-font text-white">Be ready when it matters.</h1>
+            
+            <p class="text-2xl text-gray-200">
+                A two-step natural performance system engineered for energy, stamina, and confidence.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mt-14">
+                <a href="#bundle" class="btn-primary">Pre-Order Starter Bundle R699</a>
+                <a href="tester-program.html" class="btn-secondary">Join Free Tester Program</a>
+            </div>
+            
+            <div id="countdown" class="mt-16 text-[#C8A24A] font-medium text-lg"></div>
+        </div>
+    </section>
+
+    <!-- BUNDLE SECTION -->
+    <section id="bundle" class="py-28 bg-zinc-950">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="heading-font text-6xl font-bold mb-6">AlphaFlow Starter Bundle</h2>
+            <p class="text-2xl text-gray-400 max-w-2xl mx-auto mb-16">PRE-SHOT + CORE CAPS. Save R199. Ships after pre-order batch closes.</p>
+
+            <div class="bundle-card">
+                <div class="text-7xl mb-10">🔥 💪</div>
+                <h3 class="text-4xl font-bold mb-6">Full Performance System</h3>
+                <div class="flex justify-center items-baseline gap-6 mb-12">
+                    <span class="text-6xl font-bold gold">R699</span>
+                    <span class="text-3xl line-through text-gray-500">R898</span>
+                </div>
+                
+                <ul class="text-left space-y-6 text-lg mb-12 mx-auto max-w-xs">
+                    <li>✅ PRE-SHOT Fast Activation Powder (10 sachets)</li>
+                    <li>✅ CORE CAPS Daily Vitality (60 capsules)</li>
+                    <li>✅ Free shipping from Cape Town</li>
+                    <li>✅ Digital usage guide + tracker</li>
+                </ul>
+                
+                <a href="#preorder-form" class="btn-primary text-xl py-7 w-full block">Secure Pre-Order – R699</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRE-ORDER FORM -->
+    <section id="preorder-form" class="py-24 bg-black">
+        <div class="max-w-xl mx-auto px-6">
+            <div class="bg-zinc-900 rounded-3xl p-12">
+                <h3 class="text-3xl font-bold text-center mb-10">Pre-Order Starter Bundle</h3>
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" required class="w-full bg-black border border-zinc-700 rounded-2xl px-6 py-5 mb-6 focus:outline-none focus:border-[#C8A24A]">
+                    <input type="email" name="email" placeholder="Email" required class="w-full bg-black border border-zinc-700 rounded-2xl px-6 py-5 mb-6 focus:outline-none focus:border-[#C8A24A]">
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required class="w-full bg-black border border-zinc-700 rounded-2xl px-6 py-5 mb-10 focus:outline-none focus:border-[#C8A24A]">
+                    <input type="hidden" name="product" value="AlphaFlow Starter Bundle R699">
+                    
+                    <button type="submit" class="btn-primary w-full py-7 text-xl">Submit Pre-Order</button>
+                </form>
+                <p class="text-center text-xs text-gray-500 mt-8">We will reply with bank details within 24 hours</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-16 text-center text-sm text-gray-500 border-t border-zinc-900">
+        © 2026 AlphaFlow • Cape Town, South Africa<br>
+        Dietary supplement. Results may vary. Consult your healthcare professional.
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/27712345678?text=Hi%20I%20want%20to%20pre-order%20the%20AlphaFlow%20Starter%20Bundle" 
+       target="_blank" 
+       class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-2xl z-50 hover:scale-110 transition">
+        💬
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
